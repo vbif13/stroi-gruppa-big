@@ -1,0 +1,16 @@
+/* меню для телефона: кнопка в шапке открывает полноэкранный список страниц */
+.burger,.mmenu{display:none}
+@media(max-width:800px){
+  header{z-index:70}
+  .burger{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:6px;width:44px;height:44px;margin-left:10px;padding:0 11px;background:rgba(13,12,11,.55);border:1px solid rgba(233,225,211,.4);border-radius:12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .burger span{display:block;height:1.5px;background:#e9e1d3;transition:transform .35s}
+  header .mock{margin-left:auto}
+  .mmenu{display:flex;position:fixed;inset:0;z-index:55;flex-direction:column;justify-content:center;gap:2px;padding:84px 30px 130px;background:#0d0c0b;opacity:0;pointer-events:none;transition:opacity .35s ease}
+  .mmenu a{font-family:"Tenor Sans","Jost",serif;font-size:clamp(28px,8.4vw,38px);line-height:1.1;color:#e9e1d3;text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(233,225,211,.16)}
+  .mmenu a.on{color:#b39a6e}
+  .mmenu a.cta2{margin-top:22px;border:1px solid #e9e1d3;border-radius:14px;padding:16px 20px;text-align:center;font-family:"Jost",sans-serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:#e9e1d3;color:#16130f}
+  body.mo{overflow:hidden}
+  body.mo .mmenu{opacity:1;pointer-events:auto}
+  body.mo .burger span:nth-child(1){transform:translateY(3.75px) rotate(45deg)}
+  body.mo .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)}
+}

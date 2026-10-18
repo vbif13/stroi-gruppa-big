@@ -1,0 +1,36 @@
+/* ===== плавность: убираем всё, что тормозит (фильтры, размытие, маски, лишние перерисовки) ===== */
+/* 1. размытие фона панелей и шапки: самое дорогое на телефоне */
+*,*::before,*::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#bar2{background:rgba(13,12,11,.97)}
+.badge,.btn.ghost,.mock{background:rgba(13,12,11,.55)}
+/* 2. тени-фильтры на огромных заголовках: заменяем дешёвой тенью текста */
+h1,h2,.big,.logo,.pr{filter:none!important;text-shadow:0 4px 22px rgba(0,0,0,.55)}
+/* 3. появление слов: только прозрачность и сдвиг (без размытия) */
+.wq{filter:none!important;will-change:auto;transition:opacity 1.9s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*120ms),transform 1.9s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*120ms)}
+.in .wq{filter:none!important}
+/* 4. фильтры на больших картинках не нужны: яркость уже в самих файлах */
+.hero2>img,.band img,.pagehero img,.card .ph img,.panel img,.objimg img,.card:hover .ph img{filter:none!important}
+.pagehero img{opacity:.8}
+/* 5. маски у карточек дорогие: заменяем мягким градиентом поверх фото */
+.card .ph,.panel,.objimg{-webkit-mask-image:none!important;mask-image:none!important}
+.card .ph{position:relative}
+.card .ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,rgba(23,21,18,0),rgba(23,21,18,.97));pointer-events:none}
+.panel,.objimg{box-shadow:inset 0 0 70px 46px #0d0c0b}
+/* 6. не рисуем то, чего не видно на экране */
+section.s,footer{content-visibility:auto;contain-intrinsic-size:auto 700px}
+.band,.pagehero{contain:paint}
+/* 7. параллаксу и сдвигу нужен свой слой, остальным нет */
+.band img,.hero2>img{will-change:transform;backface-visibility:hidden}
+.card,.gc{will-change:auto}
+.rv.on,.fu.on{will-change:auto}
+/* 8. на телефонах и сенсорных экранах параллакс выключен, картинки проще */
+@media(max-width:900px),(hover:none){.band img{top:0;height:100%;transform:none!important}.hero2>img{top:0;height:100%}}
+
+/* 9. лёгкая анимация: только прозрачность, без сдвигов и лишних слоёв */
+.fu,.rv{transform:none!important;transition:opacity 1s ease calc(var(--i,0)*70ms)!important}
+.rv.on:hover{transform:translateY(-4px)!important;transition:transform .35s!important}
+.wq{transform:none!important;transition:opacity 1.4s ease calc(var(--i,0)*90ms)!important}
+.hero2>img{animation:dawn 1.6s ease-out both!important;scale:1!important}
+.hero2 .badge,.hero2 .row{animation:none!important}
+/* 10. на телефонах и сенсорных экранах: без анимаций появления вообще (текст сразу виден) */
+@media(max-width:900px),(hover:none){.wq,.fu,.rv{opacity:1!important;transition:none!important}.hero2 .heroText h1 .wq{opacity:1!important}}

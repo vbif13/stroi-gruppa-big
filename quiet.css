@@ -1,0 +1,52 @@
+/* ===== тихая роскошь / лофт: тёплый чёрный, костяной цвет, латунь, медленные мягкие движения ===== */
+:root{--bg:#0d0c0b;--bg2:#141311;--bone:#e9e1d3;--tx:#e9e1d3;--mut:#9b9384;--brass:#b39a6e;--acc:#b39a6e}
+body{background:var(--bg);font-family:"Jost",system-ui,Arial,sans-serif;font-weight:300}
+h1,h2,.big,.gc h3,.card h3,.rows h3,.stage .n{font-family:"Tenor Sans","Jost",Georgia,serif;text-transform:none}
+/* заголовки: плоский костяной цвет, без хромовых эффектов, мягкая тень для читаемости */
+h1,h2,.big,.logo,.pr,.rwh i,.ch,h1 .rw,h2 .rw,.big .rw{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:var(--bone)!important;-webkit-text-fill-color:var(--bone)!important}
+h1,h2,.big,.logo,.pr{filter:drop-shadow(0 6px 22px rgba(0,0,0,.55))}
+h1{font-weight:400;font-size:clamp(40px,6.8vw,108px);line-height:1.04;letter-spacing:0}
+h2{font-weight:400;font-size:clamp(30px,4.8vw,70px);line-height:1.08;letter-spacing:.005em}
+.big{font-weight:400;font-size:clamp(26px,3.8vw,52px);line-height:1.2}
+.logo{font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.34em;font-size:13px;text-transform:uppercase}
+.gc h3,.card h3,.rows h3{font-weight:400;font-size:clamp(22px,2vw,28px);letter-spacing:.005em;color:#f3ecdf;-webkit-text-fill-color:#f3ecdf;text-shadow:0 4px 14px rgba(0,0,0,.5)}
+.pr{font-family:"Jost";font-weight:400;font-size:17px;letter-spacing:.02em}
+.tagm,.lab,.meta,.badge,.scroll{font-family:"Jost",sans-serif;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:#a8977c}
+.lab::before{background:var(--brass);height:1px}
+p,.sub,.heroText p,.rows p{font-family:"Jost",sans-serif;font-weight:300;color:#b9b2a5}
+.hero2 .heroText p{color:#d8d1c3}
+/* кнопки и плашки: спокойные, костяные */
+.btn{background:var(--bone);color:#16130f;border:1px solid var(--bone);border-radius:14px;box-shadow:none;font-family:"Jost";font-weight:400;letter-spacing:.14em;font-size:12px}
+.btn:hover{background:transparent;color:var(--bone);box-shadow:none}
+.btn.ghost{background:rgba(233,225,211,.05);color:var(--bone);border:1px solid rgba(233,225,211,.35);box-shadow:none}
+.btn.ghost:hover{border-color:var(--bone);background:rgba(233,225,211,.1)}
+.badge{border:1px solid rgba(233,225,211,.3);background:rgba(13,12,11,.4);color:#c9bfa9;font-size:11px;letter-spacing:.24em}
+.mock{color:#d8ccb2;border-color:rgba(216,204,178,.6);background:rgba(216,204,178,.06);font-family:"Jost";letter-spacing:.2em}
+nav.main a{font-family:"Jost";font-weight:300;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:#a8a090}
+nav.main a:hover,nav.main a.on{color:var(--bone)}
+/* карточки: тёплый графит / бетон / камень со свечением снизу */
+.gc.a{--g:linear-gradient(180deg,#0e0d0c 0%,#171513 32%,#4a443d 76%,#cdc3b3 100%)}
+.gc.b{--g:linear-gradient(180deg,#0d0e0f 0%,#161819 32%,#42464a 76%,#c3c7cb 100%)}
+.gc.c{--g:linear-gradient(180deg,#0f0e0c 0%,#1a1814 32%,#544c41 76%,#dcd2bf 100%)}
+.gc.d{--g:linear-gradient(180deg,#0c0c0d 0%,#151516 32%,#3d3e41 76%,#b4b6ba 100%)}
+.gc.e{--g:linear-gradient(180deg,#0d0c0b 0%,#14120f 32%,#2f2b26 76%,#86806f 100%)}
+.card{--g:linear-gradient(180deg,#100f0d 0%,#181613 34%,#4c463e 76%,#cfc5b4 100%)}
+.card:nth-child(3n+2){--g:linear-gradient(180deg,#0e0f10 0%,#16181a 34%,#43474b 76%,#c5c9cd 100%)}
+.card:nth-child(3n+3){--g:linear-gradient(180deg,#100f0c 0%,#1b1813 34%,#56503f 76%,#d9cfb9 100%)}
+.glass{background:linear-gradient(180deg,#100f0d 0%,#171512 40%,#48423a 100%)}
+/* медленное появление слов заголовков: мягко вверх, без вспышек */
+.wq{display:inline-block;opacity:0;transform:translateY(16px);filter:blur(3px);transition:opacity 1.9s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*120ms),transform 1.9s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*120ms),filter 1.7s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*120ms)}
+.in .wq{opacity:1;transform:none;filter:blur(0)}
+.fu{opacity:0;transform:translateY(14px);transition:opacity 1.6s cubic-bezier(.22,.61,.36,1),transform 1.6s cubic-bezier(.22,.61,.36,1)}
+.fu.on{opacity:1;transform:none}
+/* карточки появляются по очереди */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.4s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*140ms),transform 1.4s cubic-bezier(.22,.61,.36,1) calc(var(--i,0)*140ms),box-shadow .4s}
+.rv.on{opacity:1;transform:none}
+.rv.on:hover{transform:translateY(-5px);transition:opacity .2s,transform .4s,box-shadow .4s}
+/* фото первого экрана: медленное проявление из темноты */
+.hero2>img{animation:zoomOut 3.4s cubic-bezier(.22,.61,.36,1) .05s both,dawn 2.4s ease-out .05s both}
+@keyframes dawn{from{opacity:0}to{opacity:1}}
+.hero2 .badge{animation:fadeUp 1.4s cubic-bezier(.22,.61,.36,1) .5s both}
+.hero2 .row{animation:fadeUp 1.4s cubic-bezier(.22,.61,.36,1) 2.7s both}
+@media(prefers-reduced-motion:reduce){.wq,.fu,.rv{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}}
+@media(max-width:800px){h1{font-size:clamp(38px,11.5vw,62px)}}
