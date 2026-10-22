@@ -35,6 +35,19 @@ header .mock{font-size:10px}
 #hero .scroll{left:clamp(18px,5vw,80px)}
 @media(max-width:800px){#hero{height:420vh}#hero .heroText{top:88px}#hero .stage{bottom:112px}.shade3{background:linear-gradient(180deg,rgba(13,12,11,.78) 0%,rgba(13,12,11,.25) 38%,rgba(13,12,11,0) 62%,rgba(13,12,11,.9) 100%)}}
 @media(prefers-reduced-motion:reduce){#hero{height:100vh}}
+/* подписи этапов на первом экране (появляются по прокрутке, как на странице с часами) */
+.hcap{position:absolute;z-index:4;max-width:min(440px,86vw);opacity:0;transform:translateY(18px);pointer-events:none;will-change:opacity,transform}
+.hcap .k{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:16px}
+.hcap h2{font-family:"Tenor Sans",serif;font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:1.08;margin:0 0 18px;color:var(--bone)}
+.hcap p{margin:0;font-size:clamp(15px,1.15vw,17px);line-height:1.7;color:#c9c1b3;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.hcap.l{left:clamp(18px,6vw,96px);top:50%;margin-top:-110px}
+.hcap.r{right:clamp(18px,6vw,96px);top:50%;margin-top:-110px}
+.hcap.c{left:16px;right:16px;margin:0 auto;bottom:clamp(60px,10vh,110px);text-align:center;max-width:640px}
+.hcap .btn{margin-top:24px}
+.hcap.c::before{content:"";position:absolute;inset:-60px -120px -50px;z-index:-1;background:radial-gradient(closest-side,rgba(10,9,8,.82),rgba(10,9,8,.55) 55%,rgba(10,9,8,0));pointer-events:none}
+.hcap.l::before,.hcap.r::before{content:"";position:absolute;inset:-50px -70px;z-index:-1;background:radial-gradient(closest-side,rgba(10,9,8,.6),rgba(10,9,8,0));pointer-events:none}
+.hcap.on{pointer-events:auto}
+@media(max-width:800px){.hcap.l,.hcap.r{left:18px;right:18px;top:84px;margin:0;max-width:none}.hcap h2{font-size:28px}.hcap.c{bottom:190px}}
 
 /* общие блоки */
 .wrap{max-width:1360px;margin:0 auto}

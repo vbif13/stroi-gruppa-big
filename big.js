@@ -12,7 +12,7 @@
 
   /* ---------- первый экран: здание «раскрывается» при прокрутке ---------- */
   var hero = $('#hero');
-  if (hero) {
+  if (hero && !window.HERO3D) {
     var N = 90, set = matchMedia('(max-aspect-ratio: 1/1)').matches ? 'p' : 'l', cv = $('#cv'), ctx = cv.getContext('2d'), frames = new Array(N + 1), cur = -1;
     var pg = $('#pg'), sn = $('#sn'), st = $('#st'), ht = $('#ht');
     var STAGES = ['Проект', 'Фундамент', 'Каркас', 'Фасад и стекло', 'Объект сдан'];
